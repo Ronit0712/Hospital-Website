@@ -1,0 +1,103 @@
+{% include "user/navbar.html"%}
+
+<div class="container-fluid mt-1 justify-content-center">
+    <div class="row ">
+        <div class="col-md-12 p-5 text-white" style="background-image:linear-gradient(to right,#87d8e1,#228eb5,#167dbc);">
+            <h3 style="text-shadow: 4px 3px 3px black; line-height: 1.8;">ABOUT KEM</h3>
+        </div>
+        <div class="col-md-12 bg-light p-5 ">
+            <p class="p-5" style="line-height:1.8; ">Serving the healthcare needs of people in the Pune District of Maharashtra State in India since 1912, KEM Hospital, Pune, has grown to be one of the largest private hospitals in the region. KEM Hospital is run by the KEM Hospital Society, a registered charitable trust.<br><br>
+
+                What began with 4 maternity beds, is now a 550+ bedded multi-specialty tertiary level teaching institution. Much of the growth was spearheaded by the dynamic and visionary Dr. Banoo Coyaji, who was appointed as the Chief Medical Officer in 1944 and was awarded the Padma Bhushan and Magsaysay Awards. The hospital is particularly known for some of its Centres of Excellence many of which were the first of their kind in Pune and the surrounding region. These include Critical Care, Diabetology, Nephrology and Dialysis, High Risk Obstetrics, Neonatology and a Comprehensive Rehabilitation Centre for children with special needs.
+            </p>
+        </div>       
+        
+    </div>
+</div>
+
+<div class="container-fluid bg-light">
+    <div class="row justify-content-center">
+        <div class="col-md-1 bg-white shadow p-2">
+            <img src="/static/profiles/Dr-banoo-koyaji2.jpg" class="rounded-2" width="100%">
+        </div>
+        <div class="col-md-2 p-3">
+            <h3>Dr. Banoo Coyaji</h3>
+            <h5>Chief Medical Officer (1944 - 1999)</h5>
+        </div>
+        <div class="col-md-1 bg-white shadow p-2 ms-5">
+            <img src="/static/profiles/Dr-Kurus-Coyaji1.jpg" class="rounded-2" width="100%">
+        </div>
+        <div class="col-md-2 p-3">
+            <h3>Dr. Kurus Coyaji</h3>
+            <h5>President, KEM Hospital Society (1944 - 1999)</h5>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt-1 justify-content-center ">
+    <div class="row ">
+        <div class="col-md-12 bg-light p-5 ">
+            <p class="p-5" style="line-height:1.8; ">The KEM Hospital Research Centre is a sister institution. From its inception in 1973, it has been involved with a number of seminal research projects and has undertaken studies in collaboration with the Indian Council of Medical Research (ICMR), the World Health Organisation (WHO), Population Council and other renowned international organisations. In 1978, KEM Hospital set up a Rural Health Centre and Hospital 40 km outside Pune in Vadu Budruk. In addition to curative medicine, there is substantial emphasis on preventative and social medicine as well as community development programmes.
+
+                <br><br>KEM Pune is a tertiary level hospital that serves not only the population of the city of Pune, but also caters to patients from surrounding regions referred to us for our quality yet affordable healthcare services. In keeping with our vision and ethos, KEM Hospital Pune, is committed to providing state-of-the art medical care for patients across all socio-economic strata.
+            </p>
+        </div>       
+        
+    </div>
+</div>
+
+
+<!-- CARD SECTION -->
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-md-4 mt-5">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                  <h3 class="card-title mb-3 text-primary">Our Vision </h3>
+                  <p class="card-text">To be known as a multispecialty healthcare organization providing state of the art patient care facilities, while retaining its established reputation of caring for all sections of society – A Hospital with a Heart.</p>
+                  <a href="#" class="btn btn-success mb-3">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mt-5">
+            <div class="card shadow">
+                
+                <div class="card-body text-center">
+                  <h3 class="card-title mb-3 text-primary">Our Mission</h3>
+                  <p class="card-text">At KEM we value human life and endeavour to provide good quality ethical medical care, without any discrimination and with compassion, dedication and a smile. To continue building a dedicated team Read more</p>
+                  <a href="#" class="btn btn-success mb-3">Read More</a>
+                </div>
+            </div>
+        </div>
+
+    {% for i in abouts %}
+        <div class="col-md-4 mt-5">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                  <h3 class="card-title mb-3 text-primary">{{i.title}}</h3>
+                  <p class="card-text">{{i.discription}}</p>
+                  <a href="#" class="btn btn-success mb-3">Read More</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+     </div>
+</div>
+
+<div class="container-fluid text-center text-white">
+    <div class="row">
+        <div class="col-md-12 bg-primary p-3">
+            <h5>Modern 550+ bed multi-specialty teaching hospital which provides excellent care at a tertiary level</h5>
+        </div>
+        <div class="col-md-12 bg-dark p-3">
+            <h5>More than 100 years of superior ethical medical care</h5>
+        </div>
+        <div class="col-md-12 bg-primary p-3">
+            <h5>Many of the finest doctors in Pune, some of them pioneers in their fields</h5>
+        </div>
+        
+    </div>
+</div>
+<br><br>
+
+{% include "user/footer.html"%}

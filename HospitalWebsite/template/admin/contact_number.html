@@ -1,0 +1,86 @@
+{% include "admin/navbar.html" %}
+<div class="container shadow rounded-4" style="background-image:linear-gradient(to right,#94e2eb,#62b4d1,#105e8e); letter-spacing: 2px;">
+    <div class="row p-5 text-white">
+        <div class="col-md-12 mb-4 text-white">
+            <h2 style="text-shadow: 4px 3px 3px black;">Manage Contact Page </h2>
+        </div>
+
+        <hr>
+
+<form action="/admin/save_contact/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+    <div class="row">
+    <div class="col-md-6 fs-5 mt-4">
+        Heading :
+        <input type="text" name="ctitle" class="form-control mt-2">
+    </div>
+    <div class="col-md-6 fs-5 mt-4">
+        line 1 :
+        <input type="text" name="cinput" class="form-control mt-2">
+    </div>
+
+    <div class="col-md-3 fs-5 mt-4">
+        Available Days :
+        <input type="text" name="cdays" class="form-control mt-2" placeholder="Ex .Mon - Sat">
+    </div>
+
+    <div class="col-md-3 fs-5 mt-4">
+        Available Time :
+        <input type="time" name="ctime" class="form-control mt-2" placeholder="12:00 AM - 12:00 PM">
+    </div>
+
+    <div class="col-md-3 fs-5 mt-4">
+        Contact No.1 :
+        <input type="text" name="cno1" class="form-control mt-2" placeholder="Ex +91 XXX XXX XXXX">
+    </div>
+
+    <div class="col-md-3 fs-5 mt-4">
+        Contact No.2 :
+        <input type="text" name="cno2" class="form-control mt-2" placeholder="Ex +91 XXX XXX XXXX">
+    </div>
+
+    <div class="col-md-4 d-grid gap-2 mt-5  text-center">
+        <button class="btn btn-dark text-white">Upload</button>
+    </div>
+</div>
+</form>
+    
+<div class="col-md-10 text-center mt-3 mb-5 table-responsive">
+    <table class="table">
+        <tr>
+            <th>Sr.No.</th>
+            <th>Delete</th>
+            <th>Contact Heading</th>
+            <th>Contact Details</th>
+            <th>Available Days</th>
+            <th> Available Time</th>
+            <th>Contact Numbers</th>
+
+
+        </tr>
+        {% for i in contacts %}
+        <tr>
+            <td>{{forloop.contacts}}</td>
+            <td>
+                <a href="/admin/delete_contact?id={{i.id}}">
+                <button class="btn"><i class="fa fa-trash"></i></button>
+
+                </a>
+            </td>
+            <td>{{i.ctitle}}</td>
+            <td>{{i.cinput}}</td>
+            <td>{{i.cdays}}</td>
+            <td>{{i.ctime}}</td>
+            <td>{{i.cno1}} {{i.cno2}}</td>
+
+
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+       
+        
+   <hr>     
+    </div>
+</div>
+{% include "admin/footer.html" %}

@@ -1,0 +1,318 @@
+{% include "admin/navbar.html" %}
+<div class="container shadow rounded-4" style="background-image:linear-gradient(to right,#94e2eb,#62b4d1,#105e8e); letter-spacing: 2px;">
+    <div class="row p-5 justify-content-center">
+        <div class="col-md-12 mb-4 text-white">
+            <h2 style="text-shadow: 4px 3px 3px black;">Manage Home Page </h2>
+        </div>
+
+        
+        <hr>
+
+
+<!-- HOME IMAGE -->
+<form action="/admin/save_home_img/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <div class="col-md-6  fs-5 text">
+            Home Image :
+            <input type="file" name="home_img" class="form-control mt-2" required required>
+        </div>
+        <div class="col-md-12 mt-3 mb-2">
+            <button class="btn btn-dark text-white">Upload</button>
+            Note : First Delete Previous Image.
+        </div>
+
+</form>
+        <div class="col-md-4 text-center mt-3 mb-5">
+            <table class="table">
+                <tr>
+                    <th>Delete</th>
+                    <th>Home Image</th>
+                </tr>
+                {% for i in home_images %}
+                <tr>
+                    <td>
+                        <a href="/admin/delete_home_img?id={{i.id}}">
+                        <button class="btn"><i class="fa fa-trash"></i></button>
+
+                        </a>
+                    </td>
+                    <td>
+                        <img src="/{{i.home_img}}" width="100px">
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <hr>
+
+
+<!-- CARD SECTION -->
+        <div class="col-md-12 text-white">
+            <h4 style="text-shadow: 4px 3px 3px black;">Manage Cards </h4>
+        </div>
+<form action="/admin/save_card/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+            <div class="col-md-6 fs-5 mt-4">
+                Card Image :
+                <input type="file" name="cimage" class="form-control mt-2" required>
+            </div>
+            <div class="col-md-6 fs-5 mt-4">
+                Card Title :
+                <input type="text" name="ctitle" class="form-control mt-2" required>
+            </div>
+            <div class="col-md-12 fs-5 mt-4 mb-5">
+                Card Discription :
+                <textarea name="cdiscription" class="form-control mt-2" required></textarea>
+            </div>
+            <div class="col-md-2 d-grid gap-2 mt-2 mb-5">
+                <button class="btn btn-dark text-white">Upload</button>
+            </div>
+        </div>
+    </form>
+    <div class="col-md-10 text-center mt-3 mb-5 table-responsive">
+        <table class="table">
+            <tr>
+                <th>Sr.No.</th>
+                <th>Delete</th>
+                <th>Card Image</th>
+                <th>Card Title</th>
+                <th>Card Discription</th>
+
+
+            </tr>
+            {% for i in home_cards %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>
+                    <a href="/admin/delete_card?id={{i.id}}">
+                    <button class="btn"><i class="fa fa-trash"></i></button>
+
+                    </a>
+                </td>
+                <td>
+                    <img src="/{{i.cimage}}" width="100px">
+                </td>
+                <td>{{i.ctitle}}</td>
+                <td>{{i.cdiscription}}</td>
+
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+        <hr>
+
+
+<!-- SERVICE SECTION -->
+        <div class="col-md-12 mb-3 text-white">
+            <h4 style="text-shadow: 4px 3px 3px black;">Manage Services </h4>
+        </div>
+<form action="/admin/save_service/" method="post">
+            {% csrf_token %}
+        <div class="col-md-12 fs-5 mb-3">
+            Add Service :
+            <input type="text" name="service" class="form-control mt-2" required>
+        </div>
+        <div class="col-md-2 d-grid gap-2 mt-2 mb-5">
+            <button class="btn btn-dark text-white">Upload</button>
+        </div>
+</form>
+
+<div class="col-md-6 text-center mt-3 mb-5">
+    <table class="table">
+        <tr>
+            <th>Sr.No.</th>
+            <th>Delete</th>
+            <th>Services</th>
+        </tr>
+        {% for i in services %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>
+                <a href="/admin/delete_service?id={{i.id}}">
+                <button class="btn"><i class="fa fa-trash"></i></button>
+
+                </a>
+            </td>
+            <td>{{i.service}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+        <hr>
+
+
+        <!-- ABOUT SERVICE -->
+
+<div class="col-md-6 fs-5">
+ <form action="/admin/save_service_about/" method="post">
+        {% csrf_token %}
+            Heading :
+            <input type="text" name="sheading" class="form-control mt-2" required>
+        </div>
+        <div class="col-md-6 fs-5">
+            Title :
+            <input type="text" name="stitle" class="form-control mt-2" required>
+        </div>
+        <div class="col-md-12 fs-5 mt-4">
+            Discription :
+            <textarea name="sdetails" class="form-control mt-2" required></textarea>
+        </div>
+
+        <div class="col-md-2 d-grid gap-2 mt-4 mb-5">
+            <button class="btn btn-dark text-white">Upload</button>
+            Note : First Delete Previous Info.
+        </div>
+</form>
+
+<div class="col-md-12 text-center mt-3 mb-5 table-responsive">
+    <table class="table">
+        <tr>
+            <th>Sr.No.</th>
+            <th>Delete</th>
+            <th>Heading</th>
+            <th>Title</th>
+            <th>Details</th>
+
+
+        </tr>
+        {% for i in service_about %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>
+                <a href="/admin/delete_service_about?id={{i.id}}">
+                <button class="btn"><i class="fa fa-trash"></i></button>
+
+                </a>
+            </td>
+            <td>{{i.sheading}} </td>
+            <td>{{i.stitle}}</td>
+            <td>{{i.sdetails}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+        
+        <hr>
+
+
+ <!-- SERVICE CARDS -->
+        <div class="col-md-12 text-white">
+            <h4 style="text-shadow: 4px 3px 3px black;">Manage Service Cards </h4>
+        </div>
+
+ <form action="/admin/save_service_card/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+        <div class="row">
+        <div class="col-md-6 fs-5 mt-3">
+             Image :
+            <input type="file" name="srvimage" class="form-control mt-2" required>
+        </div>
+        <div class="col-md-6 fs-5 mt-3">
+             Title :
+            <input type="text" name="srvtitle" class="form-control mt-2" required>
+        </div>
+        <div class="col-md-12 mt-4 mb-5 text-center">
+            <button class="btn btn-dark text-white">Upload</button>
+        </div>
+        </div>
+</form>
+
+<div class="col-md-4 text-center mt-3 mb-5 table-responsive">
+    <table class="table">
+        <tr>
+            <th>Sr.No.</th>
+            <th>Delete</th>
+            <th>Card Image</th>
+            <th>Card Title</th>
+        </tr>
+        {% for i in service_cards %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>
+                <a href="/admin/delete_service_card?id={{i.id}}">
+                <button class="btn"><i class="fa fa-trash"></i></button>
+
+                </a>
+            </td>
+            <td>
+                <img src="/{{i.srvimage}}" width="100px">
+            </td>
+            <td>{{i.srvtitle}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+
+        <hr>
+
+
+
+<!-- TRANSPLANT CARDS -->
+        <div class="col-md-12 text-white">
+            <h4 style="text-shadow: 4px 3px 3px black;">Manage Transplant Cards </h4>
+        </div>
+
+<form action="/admin/save_trncard/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+        <div class="row">
+        <div class="col-md-6 fs-5 mt-3">
+             Image :
+            <input type="file" name="trnimage" class="form-control mt-2" required>
+        </div>
+        <div class="col-md-6 fs-5 mt-3">
+            Total Transplant Count :
+           <input type="text" name="trncount" class="form-control mt-2" required>
+       </div>
+        <div class="col-md-6 fs-5 mt-3">
+             Title :
+            <input type="text" name="trntitle" class="form-control mt-2" required>
+        </div>
+        
+        <div class="col-md-10 mt-4 mb-5 text-center">
+            <button class="btn btn-dark text-white">Upload</button>
+        </div>
+    </div>
+</form>
+
+<div class="col-md-10 text-center mt-3 mb-5 table-responsive">
+    <table class="table">
+        <tr>
+            <th>Sr.No.</th>
+            <th>Delete</th>
+            <th>Image</th>
+            <th>Count</th>
+            <th>Title</th>
+
+
+        </tr>
+        {% for i in trn_cards %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>
+                <a href="/admin/delete_trncard?id={{i.id}}">
+                <button class="btn"><i class="fa fa-trash"></i></button>
+
+                </a>
+            </td>
+            <td>
+                <img src="/{{i.trnimage}}" width="100px">
+            </td>
+            <td>{{i.trncount}}</td>
+            <td>{{i.trntitle}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+
+        <hr>
+
+    </div>
+</div>
+{% include "admin/footer.html" %}

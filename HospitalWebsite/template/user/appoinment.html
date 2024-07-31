@@ -1,0 +1,74 @@
+{% include "user/navbar.html"%}
+<div class="container-fluid mt-1">
+    <div class="row ">
+        <div class="col-md-12 pt-5 ps-5 text-white" style="background-image:linear-gradient(to right,#87d8e1,#228eb5,#167dbc);">
+            <h3 style="text-shadow: 4px 3px 3px black; line-height: 1.8;">BOOK YOUR APPOINTMENT</h3>
+        </div>
+    </div>
+</div>
+
+
+<!-- APPOINTMENT FORM -->
+<div class="container-fluid p-5" style="background-image:linear-gradient(to right,#87d8e1,#228eb5,#167dbc);">
+    <div class="row  justify-content-center">
+        <div class="col-md-6 p-5 shadow bg-white rounded-4">
+            <h2 class="text-primary">Appointment Form </h2>
+            <hr>
+            <br>
+           <from method="post">
+                <div class="col-md-10">
+                    <h6>Patient Name :</h6>
+                    <input type="text" name="pname" class="form-control">
+                </div>               
+                <br>
+                <div class="col-md-6">
+                    <h6>Mobile Number :</h6>
+                    <input type="text" name="pname" class="form-control">
+                </div>
+                
+                <br>
+                <h6>Address :</h6>
+                <input type="text" name="pname" class="form-control">
+                <br>
+                
+                <div class="row">
+                    <div class="col-md-3">
+                        <h6>Age :</h6>
+                        <input type="number" name="pname" class="form-control">
+                    </div>
+                    <div class="col-md-3">
+                        <h6>Date of Birth :</h6>
+                        <input type="date" name="pname" class="form-control">
+                    </div>
+                    <div class="col-md-3">
+                        <h6>Blood Group :</h6>
+                        <input type="text" name="pname" class="form-control">
+                    </div>
+
+                </div>
+                <br><br>
+                
+                    <div class="col-md-4">
+                        <h5>Appoinment Date :</h5>
+                        <input type="date" name="apdate" class="form-control">
+                    </div>
+
+                <br><br>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-3">
+                        <button class="btn btn-primary shadow-sm">Book Now</button>
+                    </div>
+                    <div class="col-md-12 mt-4 text-danger">
+                        <h6>(*Note : Appointment Date & Time will be sent on given Phone number.)</h6>
+                    </div>
+                </div>
+
+                
+               
+           </from>
+            </div>
+        </div>
+    </div>
+</div>
+{% include "user/footer.html"%}

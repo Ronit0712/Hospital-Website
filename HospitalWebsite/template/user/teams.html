@@ -1,0 +1,31 @@
+{% include "user/navbar.html"%}
+<div class="container-fluid mt-1 justify-content-center">
+    <div class="row ">
+        <div class="col-md-12 p-5 text-white" style="background-image:linear-gradient(to right,#87d8e1,#228eb5,#167dbc);">
+            <h3 style="text-shadow: 4px 3px 3px black; line-height: 1.8;">OUR TEAM MEMBERS</h3>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid bg-light p-5">
+    <div class="row m-3 justify-content-center">
+        <div class="col-md-2 bg-white shadow p-3 m-4 text-center">
+            <img src="/static/profiles/Dr-Kurus-Coyaji1.jpg" width="100%">
+            <hr>
+            <h4>Dr. Kurus Coyaji</h4>
+            
+            <p>President, KEM Hospital Society</p>
+        </div>
+
+    {% for i in members %}
+        <div class="col-md-2 bg-white shadow p-3 m-4 text-center">
+            <img src="/{{i.tmimage}}" width="100%" style="height: 240px;">
+            <hr>
+            <h4>{{i.tmname}}</h4>
+            
+            <p>{{i.tmposition}}</p>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% include "user/footer.html"%}

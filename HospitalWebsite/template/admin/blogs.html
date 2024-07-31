@@ -1,0 +1,72 @@
+{% include "admin/navbar.html" %}
+<div class="container shadow rounded-4" style="background-image:linear-gradient(to right,#94e2eb,#62b4d1,#105e8e); letter-spacing: 2px;">
+    <div class="row p-5 text-white">
+        <div class="col-md-12 mb-4 text-white">
+            <h2 style="text-shadow: 4px 3px 3px black;">Manage Blog Page </h2>
+        </div>
+
+        <hr>
+
+<form action="/admin/save_blogs/" method="post" enctype="multipart/form-data">
+     {% csrf_token %}
+     <div class="row">
+        <div class="col-md-6 fs-5 mt-4">
+            Blog Image :
+            <input type="file" name="bimage" class="form-control mt-2">
+        </div>
+        <div class="col-md-6 fs-5 mt-4">
+            Blog Title :
+            <input type="text" name="btitle" class="form-control mt-2">
+        </div>
+        <div class="col-md-12 fs-5 mt-4 ">
+            Blog Discription :
+            <textarea name="bdetails" class="form-control mt-2"></textarea>
+        </div>
+        <div class="col-md-6 fs-5 mt-4">
+            Blog By :
+            <input type="text" name="bby" class="form-control mt-2">
+        </div>
+        <div class="col-md-12 text-center mt-5 mb-5">
+            <button class="btn btn-dark text-white btn-lg">Upload</button>
+        </div>
+    </div>
+</form>
+
+<div class="col-md-10 text-center mt-3 mb-5 table-responsive">
+    <table class="table">
+        <tr>
+            <th>Sr.No.</th>
+            <th>Delete</th>
+            <th>Blog Image</th>
+            <th>Blog Title</th>
+            <th>Blog Discription</th>
+            <th>Blog By</th>
+
+
+        </tr>
+        {% for i in blogs %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>
+                <a href="/admin/delete_blog?id={{i.id}}">
+                <button class="btn"><i class="fa fa-trash"></i></button>
+
+                </a>
+            </td>
+            <td>
+                <img src="/{{i.bimage}}" width="100px">
+            </td>
+            <td>{{i.btitle}}</td>
+            <td>{{i.bdetails}}</td>
+            <td>{{i.bby}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+        <hr>
+    </div>
+</div>
+<br><br>
+{% include "admin/footer.html" %}

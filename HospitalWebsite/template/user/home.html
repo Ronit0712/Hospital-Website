@@ -1,0 +1,180 @@
+{% include "user/navbar.html"%}
+<div class="container-fluid shadow">
+    <div class="row m-5">
+        {% for i in home_images %}
+        <div class="col-md-7 p-0">
+            <img src="/{{i.home_img}}" class="w-100 h-100">
+        </div>
+        {% endfor %}
+        <div class="col-md-5 text-center text-white">
+            <div class="row m-1">
+                <div class="col-md-6 bg-primary p-5">
+                    
+                        <i class="fa fa-user-md mt-4" style="font-size: 50px;"></i>
+                        <br><br>
+                        <a href="/user/teams" class="text-white" style="text-decoration: none;"><b>TEAMS</b></a>
+                </div>
+                <div class="col-md-6 bg-info p-5">
+                    <i class="fa fa-calendar mt-4" style="font-size: 50px;"></i>
+                    <br><br>
+                    <a href="/user/appoinment" class="text-white" style="text-decoration: none;"><b>BOOK APPOINTMENT</b></a>
+                </div>
+            </div>
+            <div class="row m-1">
+                <div class="col-md-6 bg-info p-5">
+                    <i class="fa fa-group mt-4" style="font-size: 50px;"></i>
+                    <br><br>
+                    <a href="/user/departments" class="text-white" style="text-decoration: none;"><b>DEPARTMENTS</b></a>
+
+                    
+                    
+                </div>
+                <div class="col-md-6 bg-primary p-5 ">
+                    <i class="fa fa-phone mt-4 " style="font-size: 50px;"></i>
+                    <br><br>
+                    <a href="/user/contact" class="text-white" style="text-decoration: none;"><b>CONTACT US</b></a>
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CARD SECTION -->
+<div class="container mb-5">
+    <div class="row">
+
+        {% for i in home_cards %}
+        <div class="col-md-4 mt-5">
+            <div class="card shadow">
+                <img src="/{{i.cimage}}" class="card-img-top" height="250px">
+                <div class="card-body text-center">
+                  <h5 class="card-title mb-3">{{i.ctitle}}</h5>
+                  <p class="card-text">{{i.cdiscription}}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+       
+        
+     </div>
+</div>
+
+
+<!-- SERVICE SECTION -->
+<div class="container-fluid mb-5" >
+    <div class="row" style="height:500px;">
+        {% for i in service_about %}
+        <div class="col-md-7 text-white p-5" style="background-image: url(/static/services-bg.jpg);">
+            <h1 class=" p-3 shadow">{{i.sheading}}</h1>
+            <hr>
+            <h5 class="mt-4 bg-black p-3 rounded-4">{{i.stitle}}</h5>
+            <p class="mt-5 bg-black p-3 rounded-4">{{i.sdetails}}</p>
+            <button class="btn btn-primary p-2 mt-5">Learn More --></button>
+        </div>
+        {% endfor %}
+
+
+        <div class="col-md-5 p-3" style="background-image:linear-gradient(to left,#94e2eb,#62b4d1,#105e8e);">
+            <div class="row text-white text-center fs-5">
+                {% for i in services %}
+                <div class="col-12 pt-4">
+                    <p>{{i.service}}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 p-5" style="background-image: url(/static/12.png); background-size: 100% 100%;">
+            <h1 class="ms-5">ALWAYS HERE FOR YOU</h1>
+            <br>
+            <h5 class="ms-5">Keeping you safe during Covid-19</h5>
+            <button class="btn btn-primary p-2 mt-5 ms-5">Learn more</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid bg-light p-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+           <h3>Centres of Excellence</h3> 
+        </div>
+        <div class="col-md-2 bg-white text-center p-4 rounded-4 m-4  shadow">
+            <img src="/static/card_img/Blood-Bank.png" width="70px" class="rounded-circle">
+            <br>
+            <b>Award winning, officially recognised Blood Bank</b>
+        </div>
+        <div class="col-md-2 bg-white text-center p-4 rounded-4 m-4  shadow">
+            <img src="/static/card_img/Cochlear-Implants.png" width="70px" class="rounded-circle">
+            <br>
+            <b>Pioneeering Cochlear Implant Programme</b>
+        </div>
+        <div class="col-md-2 bg-white text-center p-4 rounded-4 m-4  shadow">
+            <img src="/static/card_img/Foetal_Medicine.png" width="70px" class="rounded-circle">
+            <br>
+            <b>Inrerventional Neurology & cardia interventional-neurology-and-cardiac-cathlab</b>
+        </div>
+        <div class="col-md-2 bg-white text-center p-4 rounded-4 m-4  shadow">
+            <img src="/static/card_img/General-Medicine-1.png" width="70px" class="rounded-circle">
+            <br>
+            <b>Research Centre for Path-breaking </b>
+        </div>
+        <div class="col-md-2 bg-white text-center p-4 rounded-4 m-4  shadow">
+            <img src="/static/card_img/interventional-neurology-and-cardiac-cathlab.png" width="70px" class="rounded-circle">
+            <br>
+            <b>Award winning, officially recognised Blood Bank</b>
+        </div>
+
+        {% for i in service_cards %}
+        <div class="col-md-2 bg-white text-center p-4 rounded-4 m-4  shadow">
+            <img src="/{{i.srvimage}}" width="70px" class="rounded-circle">
+            <br>
+            <b>{{i.srvtitle}}</b>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<br>
+
+<div class="container-fluid p-5" style="background-image:linear-gradient(to right,#2da0ad,#228eb5,#167dbc);">
+    <div class="row p-5 justify-content-center">
+        <div class="col-md-3 m-2 rounded-5 text-center p-4" style="background-color:white;">
+            <img src="/static/card_img/Hepatobiliary_Surgery.png" width="70px">
+            <h1>35</h1>
+            <h2>Liver Transplants</h2>
+        </div>
+        <div class="col-md-3 m-2 rounded-5 text-center p-4" style="background-color:white;">
+            <img src="/static/card_img/Nephrology.png" width="70px">
+            <h1>295</h1>
+            <h2>Kidney Transplants</h2>
+        </div>
+        
+        <div class="col-md-3 m-2 rounded-5 text-center p-4" style="background-color:white;">
+            <img src="/static/card_img/Cochlear-Implants.png" width="70px">
+            <h1>601</h1>
+            <h2>Cochlear Implants</h2>
+        </div>
+{% for i in trn_cards %}
+        <div class="col-md-3 m-2 rounded-5 text-center p-4" style="background-color:white;">
+            <img src="/{{i.trnimage}}" width="70px">
+            <h1>{{i.trncount}}</h1>
+            <h2>{{i.trntitle}}</h2>
+        </div>
+{% endfor %}
+    </div>
+</div>
+
+
+
+
+{% include "user/footer.html"%}
+

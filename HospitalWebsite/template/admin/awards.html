@@ -1,0 +1,47 @@
+{% include "admin/navbar.html" %}
+<div class="container shadow rounded-4" style="background-image:linear-gradient(to right,#94e2eb,#62b4d1,#105e8e); letter-spacing: 2px;">
+    <div class="row p-5 text-white">
+        <div class="col-md-12 mb-4 text-white">
+            <h2 style="text-shadow: 4px 3px 3px black;">Manage Awards Page </h2>
+        </div>
+
+        <hr>
+
+ <form action="/admin/save_award/" method="post" enctype="multipart/form-data">
+         {% csrf_token %}
+        <div class="col-md-6  fs-5 ">
+            Certificate/Award Image :
+            <input type="file" name="awardimg" class="form-control mt-2">
+        </div>
+        <div class="col-md-12 mt-3 mb-5">
+            <button class="btn btn-dark text-white">Upload</button>
+        </div>
+</form>
+
+<div class="col-md-4 text-center mt-3 mb-5">
+    <table class="table">
+        <tr>
+            <th>Sr.No</th>
+            <th>Delete</th>
+            <th>Award Image</th>
+        </tr>
+        {% for i in awards %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>
+                <a href="/admin/delete_award?id={{i.id}}">
+                <button class="btn"><i class="fa fa-trash"></i></button>
+
+                </a>
+            </td>
+            <td>
+                <img src="/{{i.awardimg}}" width="100px">
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+        <hr>
+    </div>
+</div>
+{% include "admin/footer.html" %}

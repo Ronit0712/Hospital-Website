@@ -1,0 +1,96 @@
+{% include "user/navbar.html"%}
+<div class="container-fluid mt-1">
+    <div class="row ">
+        <div class="col-md-12 p-5 text-white" style="background-image:linear-gradient(to right,#87d8e1,#228eb5,#167dbc);">
+            <h3 style="text-shadow: 4px 3px 3px black; line-height: 1.8;">CONTACT NUMBERS</h3>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid  bg-white ">
+    <div class="row m-5 justify-content-center">
+        <div class="col-md-3 shadow text-center text-white p-4 rounded-4 m-3" style="background-image:linear-gradient(to right,#87d8e1,#228eb5,#167dbc);">
+            <h2>AMBULANCE</h2>
+            <hr>
+            <div class="col-12 border border-white border-3 rounded-4 p-4">
+                <p>24/7 Available</p>
+                <p><i class="fa fa-phone"></i></p>
+                <p>+91 20 6603 7460 <br> +91 20 2621 7460</p>
+            </div>
+        </div>
+        <div class="col-md-3 shadow text-center text-white p-4 rounded-4 m-3" style="background-image:linear-gradient(to right,#87d8e1,#228eb5,#167dbc);">
+            <h2>General Enquiry</h2>
+            <hr>
+            <div class="col-12 border border-white border-3 rounded-4 p-4">
+                <p>KEM Hospital, Ground Floor</p>
+                <p>Mon - Sat</p>
+                <p>09:00 AM  - 05:00 PM</p>
+                <p><i class="fa fa-phone"></i></p>
+                <p>+91 20 6603 7460 <br> +91 20 2621 7460</p>
+            </div>
+        </div>
+ 
+        {% for i in contacts %}
+        <div class="col-md-3 shadow text-center text-white p-4 rounded-4 m-3" style="background-image:linear-gradient(to right,#87d8e1,#228eb5,#167dbc);">
+            <h2>{{i.ctitle}}</h2>
+            <hr>
+            <div class="col-12 border border-white border-3 rounded-4 p-4">
+                <p>{{i.cinput}}</p>
+                <p>{{i.cdays}}</p>
+                <p>{{i.ctime}}</p>
+                <p><i class="fa fa-phone"></i></p>
+                <p>{{i.cno1}}<br>{{i.cno2}}</p>
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="col-md-3 shadow text-center text-white p-4 rounded-4 m-3" style="background-image:linear-gradient(to right,#87d8e1,#228eb5,#167dbc);">
+            <h2>OPD Admission & Registration Counter</h2>
+            <hr>
+            <div class="col-12 border border-white border-3 rounded-4 p-4">
+                <p>KEM Hospital, Ground Floor</p>
+                <p>Mon - Sat</p>
+                <p>08:45 AM  - 04:30 PM</p>
+                <p><i class="fa fa-phone"></i></p>
+                <p>+91 20 6603 7460 <br> +91 20 2621 7460</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="container-fluid mt-1">
+    <div class="row" style="background-image:linear-gradient(to right,#87d8e1,#228eb5,#167dbc);">
+        <div class="col-md-12 pt-4 text-center text-white" >
+            <h3 style="text-shadow: 4px 3px 3px black; line-height: 1.8;">FEEDBACK</h3>
+        </div>
+    </div>
+
+    <div class="row justify-content-center " style="background-image:linear-gradient(to right,#87d8e1,#228eb5,#167dbc);">
+        
+            <div class="col-md-6 rounded-4 p-5 mb-5 bg-white shadow">
+            <form action="/user/save_feedback/" method="post">
+                {% csrf_token %}
+                Name :
+                <input type="text" name="cname" class="form-control mb-3">
+
+                Phone Number :
+                <input type="text" name="cnumber" class="form-control mb-3">
+
+                Email :
+                <input type="email" name="cemail" class="form-control mb-3">
+               
+                Your Feedback :
+                <textarea name="cfeedback" class="form-control mb-3"></textarea>
+                
+                <hr>
+                <div class="row text-center">
+                     <button class="btn btn-success">Send</button>
+                </div>
+            </form>
+            </div>
+       
+    </div>
+</div>
+{% include "user/footer.html"%}

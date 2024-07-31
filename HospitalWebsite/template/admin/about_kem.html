@@ -1,0 +1,54 @@
+{% include "admin/navbar.html" %}
+<div class="container shadow rounded-4" style="background-image:linear-gradient(to right,#94e2eb,#62b4d1,#105e8e); letter-spacing: 2px;">
+    <div class="row p-5 text-white">
+        <div class="col-md-12 mb-4 text-white">
+            <h2 style="text-shadow: 4px 3px 3px black;">Manage About </h2>
+        </div>
+
+        <hr>
+
+<form action="/admin/save_about/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+        <div class="row">
+        <div class="col-md-6 fs-5 mt-4">
+            Title :
+            <input type="text" name="title" class="form-control mt-2">
+        </div>
+        <div class="col-md-6 fs-5 mt-4 mb-5">
+             Discription :
+            <textarea name="discription" class="form-control mt-2"></textarea>
+        </div>
+        <div class="col-md-2 d-grid gap-2 mt-2 mb-5">
+            <button class="btn btn-dark text-white">Upload</button>
+        </div>
+    </div>
+</form>
+
+<hr>
+
+<div class="col-md-10 text-center mt-3 mb-5 table-responsive">
+    <table class="table">
+        <tr>
+            <th>Sr.No.</th>
+            <th>Delete</th>
+            <th>Title</th>
+            <th>Details</th>
+        </tr>
+        {% for i in abouts %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>
+                <a href="/admin/delete_about?id={{i.id}}">
+                <button class="btn"><i class="fa fa-trash"></i></button>
+
+                </a>
+            </td>
+            <td>{{i.title}}</td>
+            <td>{{i.discription}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+    </div>
+</div>
+{% include "admin/footer.html" %}
